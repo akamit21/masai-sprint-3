@@ -19,6 +19,7 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data, xhr) {
           console.log(xhr.status);
+          $("#searchInput").val("");
           if (data.Response == "True") {
             getMovie(data.Search, type);
           }
@@ -70,7 +71,7 @@ $(document).ready(function() {
       );
       var ui = createMovieCard(movie, type);
       $("#movieList").append(ui);
-      window.location.hash = "movieContainer";
+      window.location.replace("#movieContainer");
     });
   }
 

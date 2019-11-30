@@ -9,5 +9,6 @@ Anyone can contribute to this code to make it more better and having better expe
 
 ## Amit Kumar
 
-> **Twitter:** @Amitaldo
-> akamit21@outlook.com
+> **Twitter :** @Amitaldo
+>
+> **Email :** akamit21@outlook.com

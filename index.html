@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Film Finder</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- google-font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/color.css" />
+
+    <meta name="theme-color" content="#fafafa" />
+  </head>
+
+  <body>
+    <!-- Add your site or application content here -->
+    <div class="container-fluid search-container pt-4">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark  navbar-bg">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.jpg" class="img-fluid logo" alt="" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#about">
+                About <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- search-box -->
+      <div class="container">
+        <div class="search-box p-4 text-white rounded">
+          <h1 class="display-4 fw-700">Search Movie</h1>
+          <p class="lead">
+            Enter movie or tv-series name to get info!
+          </p>
+          <!-- searching input -->
+          <div>
+            <div class="form-row">
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="form-control form-control-lg "
+                  placeholder="Enter Movie Name..."
+                />
+              </div>
+              <div class="col-sm-3">
+                <button id="submit" class="btn btn-dark btn-lg btn-block">
+                  Submit
+                </button>
+              </div>
+            </div>
+            <br />
+            <div class="form-group form-inline">
+              <div class="custom-control custom-radio fw-500 mr-5">
+                <input
+                  type="radio"
+                  name="searchType"
+                  id="movies"
+                  class="custom-control-input"
+                  value="movie"
+                  checked
+                />
+                <label class="custom-control-label" for="movies">Movies</label>
+              </div>
+              <div class="custom-control custom-radio fw-500">
+                <input
+                  type="radio"
+                  name="searchType"
+                  id="tv-series"
+                  class="custom-control-input"
+                  value="series"
+                />
+                <label class="custom-control-label" for="tv-series"
+                  >TV Series</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- error message -->
+        <div id="message"></div>
+      </div>
+      <!-- /.search-box -->
+    </div>
+    <div class="container p-sm-5 py-3" id="about">
+      <h2 class="fw-700 display-4 text-center position-relative heading mb-4">
+        About
+      </h2>
+      <p class="text-center">
+        Film Finder was launched by Amit Kumar in 2007, as a Patna-based film
+        website that also offered social media consulting services to film
+        studios. Using an open-posting model that invites readers to write their
+        own content and a recommendation algorithm for movies, Film Finder grew
+        to more than 6.8 million unique monthly views by October 2014 (Google
+        Analytics).<br />Since its launch Film Finder has expanded into other
+        publishing verticals.
+      </p>
+    </div>
+    <!-- movielist container -->
+    <div class="container p-sm-5 py-3 d-none" id="movieContainer">
+      <h2 class="fw-700 display-4 text-center position-relative heading mb-4">
+        Search Result
+      </h2>
+      <div class="row" id="movieList"></div>
+    </div>
+
+    <!-- footer -->
+    <footer class="grey darken-4 text-white p-5 text-center">
+      <div class="d-flex justify-content-center">
+        <img src="img/logo.jpg" class="img-fluid footer-logo" alt="logo" />
+      </div>
+      <br />
+      <small class="text-muted">Stay Connected</small>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/Amitaldo">
+            <i class="fa fa-twitter-square fa-2x yellow-text text-accent-2">
+            </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/in/akamit21">
+            <i class="fa fa-linkedin-square fa-2x yellow-text text-accent-2">
+            </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.github.com/akamit21">
+            <i class="fa fa-github-square fa-2x yellow-text text-accent-2"> </i>
+          </a>
+        </li>
+      </ul>
+      <small class="font-weight-light pt-1">
+        Movie Finder &copy; Designed By <em>Amit Kumar</em>
+      </small>
+    </footer>
+    <!-- /footer -->
+
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="movieModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl rounded-0" role="document">
+        <div class="modal-content" id="movieDetails"></div>
+      </div>
+    </div>
+    <!-- /.modal -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

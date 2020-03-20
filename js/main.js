@@ -14,7 +14,7 @@ $(document).ready(function() {
     if (validate.length == 0) {
       $.ajax({
         type: "GET",
-        url: "http://www.omdbapi.com/",
+        url: "https://www.omdbapi.com/",
         data: { type: type, s: name, apikey: "5732ac07" },
         dataType: "json",
         success: function(data, xhr) {
